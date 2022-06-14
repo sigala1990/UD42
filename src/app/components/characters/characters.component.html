@@ -1,0 +1,15 @@
+<link src="characters.component.css">
+<h1 class="text-center">Characters Rick & Morty!</h1>
+
+<!-- if-->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3" *ngIf="books!=null; else espera">
+    <!-- for -->
+    <div class="card m-3" style="width: 18rem;" *ngFor="let char of books">
+      <img  src="{{char.image}}" class="card-img-top">
+      <div class="card-body text-center mb-3">
+        <h5 class="card-title text-center">{{char.name}}</h5>
+        <a href="#"  routerLink="/details" class="btn btn-warning w-75" >See more</a>
+      </div>
+    </div>
+</div>
+<ng-template #espera>Waiting for data...</ng-template>

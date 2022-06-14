@@ -1,0 +1,41 @@
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-4">
+            <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="searchTitle" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="searchByTitle()">
+          Search
+        </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h4>Book List</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Specie</th>
+                    <th scope="col" style="min-width: 150px;">Image</th>
+                    <th scope="col">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books;">
+                    <th scope="row">{{book.id}}</th>
+                    <td><b>{{book.name}}</b></td>
+                    <td>{{book.description}}</td>
+                    <td><img src="{{book.image}}" width="50"></td>
+                    <td>{{book.location}}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" routerLink="/book/{{book.id}}">Edit</button>
+                        <button type="button" class="btn btn-warning" (click)="deleteBook(book.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
